@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal profile webpage of MD. Himel Mia.">
+    <title>MD. Himel Mia | Personal Profile</title>
+    <style>
+        :root {
+            --navy: #10243a;
+            --blue: #245b80;
+            --sky: #eaf4f8;
+            --ink: #243447;
+            --muted: #617386;
+            --white: #ffffff;
+            --line: #dce6ed;
+            --gold: #f2bd55;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.65;
+            color: var(--ink);
+            background: #f4f8fb;
+        }
+
+        .container {
+            width: min(100% - 32px, 1050px);
+            margin-inline: auto;
+        }
+
+        header {
+            color: var(--white);
+            background: linear-gradient(125deg, #10243a, #245b80);
+            padding: 34px 0 28px;
+        }
+
+        .topline {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            margin: 0;
+            font-size: 1.65rem;
+            letter-spacing: .3px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: .95rem;
+        }
+
+        nav a:hover, nav a:focus { color: var(--gold); }
+
+        .intro {
+            padding: 35px 0 8px;
+            max-width: 760px;
+        }
+
+        .intro h2 {
+            font-size: clamp(2rem, 5vw, 3.1rem);
+            line-height: 1.12;
+            margin: 0 0 12px;
+        }
+
+        .intro p {
+            margin: 0;
+            color: #e3edf4;
+            font-size: 1.08rem;
+        }
+
+        main { padding: 30px 0 50px; }
+
+        section, .panel {
+            background: var(--white);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 24px rgba(16, 36, 58, .045);
+        }
+
+        h2.section-title {
+            color: var(--navy);
+            margin: 0 0 14px;
+            font-size: 1.45rem;
+        }
+
+        .landscape {
+            display: block;
+            width: 100%;
+            max-height: 440px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-top: 18px;
+        }
+
+        figure { margin: 0; }
+        figcaption {
+            color: var(--muted);
+            font-size: .88rem;
+            margin-top: 8px;
+        }
+
+        mark {
+            background: #fff0b8;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        .table-wrap { overflow-x: auto; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 420px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        th {
+            color: var(--navy);
+            background: var(--sky);
+        }
+
+        tbody tr:last-child td { border-bottom: 0; }
+
+        form { display: grid; gap: 15px; }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        label, legend { font-weight: 700; color: var(--navy); }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            display: block;
+            width: 100%;
+            margin-top: 6px;
+            padding: 11px 12px;
+            border: 1px solid #cbd8e2;
+            border-radius: 8px;
+            font: inherit;
+            color: var(--ink);
+            background: #fff;
+        }
+
+        fieldset {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 12px 14px;
+        }
+
+        fieldset label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            margin: 5px 18px 5px 0;
+            font-weight: 400;
+            color: var(--ink);
+        }
+
+        button {
+            border: 0;
+            border-radius: 9px;
+            padding: 11px 18px;
+            background: var(--blue);
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .15s ease, background .15s ease;
+        }
+
+        button:hover { background: #173f5d; transform: translateY(-1px); }
+
+        .secondary-button {
+            background: #eaf2f7;
+            color: var(--navy);
+            border: 1px solid #d5e2eb;
+        }
+
+        .secondary-button:hover { background: #dceaf3; }
+
+        .media-box {
+            padding: 15px;
+            background: var(--sky);
+            border-radius: 10px;
+        }
+
+        audio { width: 100%; }
+
+        details {
+            padding: 14px 16px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fbfdff;
+        }
+
+        summary {
+            color: var(--navy);
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--navy);
+            color: #e5eef5;
+            text-align: center;
+            padding: 22px 16px;
+        }
+
+        footer p { margin: 4px 0; }
+
+        @media (max-width: 650px) {
+            .topline { align-items: flex-start; }
+            nav { width: 100%; }
+            section, .panel { padding: 19px; }
+            .form-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="topline">
+                <h1 class="brand">MD. Himel Mia</h1>
+                <nav aria-label="Main navigation">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#hobbies">Hobbies</a>
+                    <a href="#contact">Profile Form</a>
+                </nav>
+            </div>
+            <div class="intro">
+                <h2>Hello, welcome to my profile!</h2>
+                <p>A little introduction, my academic background, and some things I enjoy.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                Hello! My name is <strong>MD. Himel Mia</strong>. I am interested in
+                technology and learning new things. I enjoy exploring how websites
+                are built and how programming can solve everyday problems.
+                I believe that <em>consistent practice</em> is an important part of
+                learning. My goal is to improve my skills and become a better
+                <u>web developer</u>.
+            </p>
+            <p><mark>Welcome to my personal profile webpage!</mark></p>
+            <figure>
+                <img class="landscape" src="assets/profile-landscape.jpg"
+                     alt="A green mountain valley with misty cliffs and a golden sunset">
+                <figcaption>A peaceful mountain landscape.</figcaption>
+            </figure>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Academic Information</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Examination</th>
+                            <th scope="col">Passing Year</th>
+                            <th scope="col">GPA / CGPA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SSC</td>
+                            <td>2019</td>
+                            <td>4.00</td>
+                        </tr>
+                        <tr>
+                            <td>HSC</td>
+                            <td>2021</td>
+                            <td>4.50</td>
+                        </tr>
+                        <tr>
+                            <td>BSc</td>
+                            <td>2025</td>
+                            <td>3.67</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="hobbies">
+            <h2 class="section-title">Multimedia &amp; Hobbies</h2>
+            <p>One of my hobbies is playing <strong>cricket</strong>.</p>
+            <div class="media-box">
+                <p><strong>Sample audio</strong></p>
+                <audio controls preload="none">
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <small>The audio is streamed from an external sample-audio website and requires an internet connection.</small>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Personal Information Form</h2>
+            <form action="#" method="get" onsubmit="event.preventDefault(); alert('Thank you! This is a demonstration form; no information has been sent.');">
+                <div class="form-grid">
+                    <label for="name">Name
+                        <input type="text" id="name" name="name" value="MD. Himel Mia" required>
+                    </label>
+                    <label for="email">Email
+                        <input type="email" id="email" name="email" value="himelahmed901@gmail.com" required>
+                    </label>
+                    <label for="password">Password
+                        <input type="password" id="password" name="password" value="123@321" required>
+                    </label>
+                </div>
+
+                <fieldset>
+                    <legend>Gender</legend>
+                    <label><input type="radio" name="gender" value="Male" checked> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                    <label><input type="radio" name="gender" value="Other"> Other</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Hobbies</legend>
+                    <label><input type="checkbox" name="hobbies" value="Cricket" checked> Cricket</label>
+                </fieldset>
+
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </section>
+
+        <section>
+            <h2 class="section-title">More About Me</h2>
+            <details>
+                <summary>Click here to read additional information</summary>
+                <p>I enjoy learning, practicing programming, and spending my free time playing cricket. I am always interested in gaining new knowledge and developing useful skills.</p>
+            </details>
+            <p style="margin: 18px 0 10px;">Click the button below for a greeting.</p>
+            <button class="secondary-button" type="button" onclick="alert('Thanks for visiting my personal profile!')">
+                Say Hello
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>MD. Himel Mia</strong></p>
+        <p>Personal Profile Webpage | Created with HTML and CSS</p>
+    </footer>
+</body>
+</html>
